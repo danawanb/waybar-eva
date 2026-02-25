@@ -1,0 +1,252 @@
+/* Evangelion Theme - Blue & Purple Dominant */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK JP", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(15, 15, 35, 0.85);
+    color: #82aaff;
+    border: 2px solid #bb9af7;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(187, 154, 247, 0.3);
+}
+
+/* Workspaces */
+#workspaces {
+    background: linear-gradient(135deg, rgba(98, 114, 164, 0.3), rgba(187, 154, 247, 0.2));
+    padding: 0 8px;
+    margin: 4px 0;
+    border-radius: 8px;
+    border: 1px solid rgba(130, 170, 255, 0.4);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #82aaff;
+    background: transparent;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+#workspaces button:hover {
+    background: rgba(130, 170, 255, 0.2);
+    color: #bb9af7;
+    text-shadow: 0 0 10px rgba(187, 154, 247, 0.8);
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, #6272a4, #bb9af7);
+    color: #0f0f23;
+    font-weight: 900;
+    box-shadow: 0 0 15px rgba(187, 154, 247, 0.6);
+}
+
+#workspaces button.urgent {
+    background: #ff6b9d;
+    color: #0f0f23;
+    animation: urgent-blink 1s ease infinite;
+}
+
+@keyframes urgent-blink {
+    0% { 
+        box-shadow: 0 0 10px #ff6b9d;
+        opacity: 1;
+    }
+    50% { 
+        box-shadow: 0 0 20px #ff6b9d;
+        opacity: 0.7;
+    }
+    100% {
+        box-shadow: 0 0 10px #ff6b9d;
+        opacity: 1;
+    }
+}
+
+/* Window Title */
+#window {
+    padding: 0 6px;
+    color: #c792ea;
+    background: rgba(199, 146, 234, 0.1);
+    border-radius: 8px;
+    margin: 4px 0;
+    border: 1px solid rgba(199, 146, 234, 0.3);
+    font-style: italic;
+}
+
+/* Clock */
+#clock {
+    padding: 0 16px;
+    background: linear-gradient(135deg, #4a5899, #7b68ee);
+    color: #0f0f23;
+    font-weight: 900;
+    border-radius: 8px;
+    margin: 4px 0;
+    box-shadow: 0 0 15px rgba(123, 104, 238, 0.5);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+}
+
+/* Modules */
+#cpu,
+#memory,
+#battery,
+#network,
+#pulseaudio,
+#custom-todo {
+    padding: 0 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    background: rgba(98, 114, 164, 0.3);
+    border: 1px solid rgba(130, 170, 255, 0.4);
+    color: #82aaff;
+    transition: all 0.3s ease;
+}
+
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-todo:hover {
+    background: rgba(130, 170, 255, 0.3);
+    box-shadow: 0 0 10px rgba(130, 170, 255, 0.5);
+    border-color: #bb9af7;
+}
+
+/* CPU Module with Icon */
+#cpu {
+    color: #82aaff;
+}
+
+/* Memory Module with Icon */
+#memory {
+    color: #a277ff;
+}
+
+/* Battery Module with Icons */
+#battery {
+    color: #bb9af7;
+}
+
+#battery.charging {
+    background: rgba(80, 250, 123, 0.2);
+    color: #50fa7b;
+    border-color: #50fa7b;
+}
+
+#battery.warning:not(.charging) {
+    background: rgba(241, 250, 140, 0.2);
+    color: #f1fa8c;
+    border-color: #f1fa8c;
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(255, 107, 157, 0.3);
+    color: #ff6b9d;
+    border-color: #ff6b9d;
+    animation: battery-critical 1s ease infinite;
+}
+
+@keyframes battery-critical {
+    0% { 
+        box-shadow: 0 0 10px #ff6b9d;
+    }
+    50% { 
+        box-shadow: 0 0 20px #ff6b9d;
+    }
+    100% {
+        box-shadow: 0 0 10px #ff6b9d;
+    }
+}
+
+/* Network Module with Icon */
+#network {
+    color: #61afef;
+}
+
+#network.disconnected {
+    background: rgba(255, 107, 157, 0.2);
+    color: #ff6b9d;
+    border-color: #ff6b9d;
+}
+
+/* PulseAudio Module with Icon */
+#pulseaudio {
+    color: #c792ea;
+}
+
+#pulseaudio.muted {
+    background: rgba(98, 114, 164, 0.2);
+    color: #6272a4;
+    border-color: #6272a4;
+}
+
+/* Custom Todo Module */
+#custom-todo {
+    color: #f1fa8c;
+    background: linear-gradient(135deg, rgba(241, 250, 140, 0.2), rgba(187, 154, 247, 0.2));
+    border: 1px solid rgba(241, 250, 140, 0.4);
+    font-weight: 900;
+}
+
+#custom-todo:hover {
+    background: linear-gradient(135deg, rgba(241, 250, 140, 0.3), rgba(187, 154, 247, 0.3));
+    box-shadow: 0 0 15px rgba(241, 250, 140, 0.5);
+    border-color: #f1fa8c;
+}
+
+#custom-todo.urgent {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(241, 250, 140, 0.2));
+    color: #ff6b9d;
+    border-color: #ff6b9d;
+    animation: todo-urgent 1.5s ease infinite;
+}
+
+@keyframes todo-urgent {
+    0% { 
+        box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+    }
+}
+
+/* Tray */
+#tray {
+    padding: 0 8px;
+    background: rgba(98, 114, 164, 0.2);
+    border-radius: 8px;
+    margin: 4px 0;
+    border: 1px solid rgba(130, 170, 255, 0.3);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ff6b9d;
+}
+
+/* Tooltip */
+tooltip {
+    background: rgba(15, 15, 35, 0.95);
+    border: 2px solid #bb9af7;
+    border-radius: 8px;
+    color: #82aaff;
+    box-shadow: 0 0 20px rgba(187, 154, 247, 0.4);
+}
+
+tooltip label {
+    color: #82aaff;
+    padding: 8px;
+}
